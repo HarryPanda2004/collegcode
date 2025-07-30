@@ -1,0 +1,175 @@
+//sum of n naural number 
+
+#include <stdio.h>
+int sum(int a ){
+    int add =0;
+    add +=a;
+    if(a==1) return 1;
+    else {return sum(a-1)+a;}
+}
+int main(){
+    int n =0;
+    printf("enter the number ");
+    scanf("%d",&n);
+    if (n<0){
+        printf("the sum is only for natural number \n");
+    }
+    int p;
+    p=sum(n);
+    printf("%d",p);
+    return 0;
+
+// factorial 
+
+
+#include <stdio.h>
+int fact(int a ){
+    int multi =0;
+    multi *=a;
+    if(a==1) return 1;
+    else {return fact(a-1)*a;}
+}
+int main()
+{
+    int n=0;
+    printf("enter the number ");
+    scanf("%d",&n);
+    if (n<0){
+        printf("the fact is not possible\n");
+    }
+    int p;
+    p=fact(n);
+    printf("%d",p);
+    return 0;
+}
+
+// gcd 
+#include <stdio.h>
+int gcd(int a, int b  ){
+    int div=a%b;
+    
+    if(div==0) return b;
+    else {return gcd(b,div);
+        
+    }
+}
+int main(){
+    int a =0;
+    printf("enter the number ");
+    scanf("%d",&a);
+    int b =0;
+    printf("enter the number ");
+    scanf("%d",&b);
+    if (a<b){
+        a = a + b;
+        b = a - b;
+        a = a - b;
+    }
+    int p=0;
+    p=gcd(a,b);
+    printf("%d",p);
+    return 0;
+}
+
+
+
+// Fibonacci 
+
+
+#include <stdio.h>
+int fibo(int n){
+    if (n==1){
+        return 0;
+    }
+    else if (n==2){
+        return 1;
+    }
+    else {
+        return fibo(n-2)+fibo(n-1) ;
+    }
+}
+int main(){
+    int n =0;
+    printf("enter the number ");
+    scanf("%d",&n);
+     int p=0;
+    p=fibo(n);
+    printf("%d",p);
+    return 0;
+}
+
+// fibo print 
+#include <stdio.h>
+int fibo(int n){
+    if (n==1){
+        return printf("0\n");
+    }
+    else if (n==2){
+        return printf("1\n");
+    }
+    else {
+        int p=fibo(n-2)+fibo(n-1);
+        return printf("%d\n",p) ;
+    }
+}
+int main(){
+    int n =0;
+    printf("enter the number ");
+    scanf("%d",&n);
+    int p=0;
+    p=fibo(n);
+    printf("%d",p);
+    return 0;
+}
+//queue
+#include <stdio.h>
+int front =-1;
+int rear =-1;
+int queue[100];
+
+void enqueue(){
+    
+   if (rear==100){
+    printf("overflow");
+   }
+   else {
+       int x ; 
+    printf ("what you want to add");
+    scanf ("%d",&x);
+       queue[++rear]=x;
+       
+   }
+} 
+void dequeue(){
+    front++;
+   if (front==rear){
+      printf("underflow");
+   }
+} 
+void display(){
+    int i=++front;
+    printf("enter the queue");
+    for (;i<=rear;i++){
+        printf("%d",queue[i]);
+    }printf("\n");
+}
+int main() {
+    int el;
+    
+    do {
+        printf ("write what to do ");
+        scanf("%d",&el);
+        switch(el)
+        {
+        case 1:enqueue();
+        break;
+        case 2:dequeue();
+        break;
+        case 3:display();
+        break;
+        case 4:printf( "exiting");
+        break;
+    }
+    }while(el!=0);
+    return 0;
+}
